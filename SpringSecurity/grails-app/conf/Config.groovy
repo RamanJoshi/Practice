@@ -11,8 +11,13 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+//grails.mail.host = "smtp.mandrillapp.com"
+//grails.mail.port = 587
+//grails.mail.username = "arif.khan@oodlestechnologies.com"
+//grails.mail.password = "E6s4mcmfBBdJhwYKlC6d0A"
+//grails.mail.props = ["mail.smtp.auth":"true","mail.smtp.socketFactory.port":"587","mail.debug": "true"]
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
-
+//grails.plugin.springsecurity.securityConfigType = "Requestmap"
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
 grails.mime.types = [ // the first one is the default format
@@ -40,9 +45,22 @@ grails.views.default.codec = "html"
 // The default scope for controllers. May be prototype, session or singleton.
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
-
 // GSP settings
 grails {
+
+//			 mail {
+//		  host = "smtp.gmail.com"
+//		  port = 465
+//		  username = "v360telehealth@gmail.com"
+//		  password = "v1s1on360tele"
+//	
+//		  props = ["mail.smtp.auth":"true",
+//			  "mail.debug": "true",
+//			 "mail.smtp.socketFactory.port":"465",
+//			 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+//			 "mail.smtp.socketFactory.fallback":"false"]
+//		  }
+			
     views {
         gsp {
             encoding = 'UTF-8'
@@ -114,6 +132,8 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+	debug   'grails.app.controllers',
+			'grails.app.services'
 }
 
 
@@ -132,3 +152,48 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 
+grails.plugin.springsecurity.rememberMe.persistent = true
+grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'com.example.User'
+
+grails.plugin.springsecurity.rememberMe.persistent = true
+grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'com.example.Login'
+
+//grails{
+
+//		 mail {
+//	  host = "smtp.gmail.com"
+//	  port = 465
+//	  username = "v360telehealth@gmail.com"
+//	  password = "v1s1on360tele"
+//
+//	  props = ["mail.smtp.auth":"true",
+//		  "mail.debug": "true",
+//		 "mail.smtp.socketFactory.port":"465",
+//		 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+//		 "mail.smtp.socketFactory.fallback":"false"]
+//	  }
+
+/*	mail {
+		   host = "smtp.sendgrid.net"
+		   port = 465
+		   username = "mak786mak7"
+		   password = "oodles@123"
+		   props = ["mail.smtp.auth":"true",
+			  "mail.smtp.socketFactory.port":"465",
+			  "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			  "mail.smtp.socketFactory.fallback":"false"]
+		 }*/
+//}
+grails{
+	mail {
+		host = "smtp.mandrillapp.com"
+		port = 587
+		username = "arif.khan@oodlestechnologies.com"
+		password = "E6s4mcmfBBdJhwYKlC6d0A"
+		props = ["mail.smtp.auth":"true",
+			"mail.smtp.socketFactory.port":"587"]
+	   }
+
+}
+grails.mail.default.from="noreply@gmail.com"
+grails.mail.disabled=false
